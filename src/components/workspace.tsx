@@ -25,7 +25,7 @@ import { Buyer } from "./buyer";
 import { Dashboard } from "./dashboard";
 import { Evaluation } from "./evaluation";
 import { Operator } from "./operator";
-import { Empty } from "./shared";
+import { Empty, LoadingSkeleton } from "./shared";
 import { Simulator } from "./simulator";
 const tabs = [
   { name: "Dasbor jaringan", icon: LayoutDashboard },
@@ -118,12 +118,10 @@ export default function Workspace() {
         id="main-navigation"
         className={mobile ? "sidebar open" : "sidebar"}
       >
-        <Link className="brand" href="/profil" aria-label="Profil BALIKIN">
+        <Link className="brand" href="/" aria-label="Profil BALIKIN">
           <Image src={logo} alt="BALIKIN" height={74} preload />
         </Link>
-        <div className="workspace-label">
-          RUANG KERJA <span>MVP 01</span>
-        </div>
+        <div className="workspace-label">RUANG KERJA</div>
         <div className="network-select">
           <span className="network-avatar">BU</span>
           <div>
@@ -155,7 +153,7 @@ export default function Workspace() {
             <br />
             Uji kecil, pelajari bersama.
           </p>
-          <Link className="profile-link" href="/profil">
+          <Link className="profile-link" href="/">
             Lihat profil perusahaan <ArrowRight size={13} />
           </Link>
           <span>
@@ -180,7 +178,7 @@ export default function Workspace() {
       <div className="main">
         <header className="topbar">
           <button
-            className="mobile-toggle icon-button"
+            className="mobile-toggle"
             onClick={() => setMobile(!mobile)}
             aria-label={mobile ? "Tutup navigasi" : "Buka navigasi"}
             aria-expanded={mobile}
@@ -189,7 +187,9 @@ export default function Workspace() {
             <Menu />
           </button>
           <div>
-            Jaringan percontohan <ChevronRight size={14} />{" "}
+            <span className="crumb-root">
+              Jaringan percontohan <ChevronRight size={14} />{" "}
+            </span>
             <b>{tabs[tab].name}</b>
           </div>
           <span className="sandbox">
@@ -198,7 +198,7 @@ export default function Workspace() {
           </span>
         </header>
         <main>
-          <div className="page-heading">
+          <div>
             <div className="eyebrow">RETUR BERSAMA, DIUKUR DENGAN DATA</div>
             <div className="title-row">
               <div>
@@ -235,9 +235,11 @@ export default function Workspace() {
             </div>
           )}
           {!n ? (
-            <Empty>
-              {error ? "Gagal memuat jaringan." : "Memuat jaringan lokal…"}
-            </Empty>
+            error ? (
+              <Empty>Gagal memuat jaringan.</Empty>
+            ) : (
+              <LoadingSkeleton />
+            )
           ) : (
             <div
               aria-busy={busy}
@@ -263,7 +265,7 @@ export default function Workspace() {
           )}
           <footer>
             BALIKIN <span>Laboratorium retur bersama</span>
-            <Link href="/profil">Profil perusahaan</Link>
+            <Link href="/">Profil perusahaan</Link>
             <span className="footnote">
               Data sintetis & asumsi · Bukan bukti kelayakan bisnis
             </span>

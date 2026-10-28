@@ -63,7 +63,7 @@ export function Operator({ n, act }: Props) {
               .filter((r) => r.status === "qr_terbit")
               .map((r) => (
                 <option value={r.id} key={r.id}>
-                  {r.id} · {r.item.category}
+                  {r.id} · {label(r.item.category)}
                 </option>
               ))}
           </select>
@@ -180,7 +180,7 @@ export function Operator({ n, act }: Props) {
         {r && (
           <div className="inspection-form">
             <h3>
-              {r.id} · {r.item.category}
+              {r.id} · {label(r.item.category)}
             </h3>
             <div className="checklist">
               {fields.map((f) => (

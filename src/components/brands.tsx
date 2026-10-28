@@ -147,7 +147,7 @@ export function Brands({ n, act }: Props) {
         </ReturnTable>
       </section>
       {r && (
-        <section className="panel detail-panel">
+        <section className="panel">
           <div className="panel-heading">
             <h2>Detail {r.id}</h2>
             <button className="button small" onClick={() => setSelected("")}>
@@ -278,7 +278,7 @@ export function Brands({ n, act }: Props) {
           )}
           {r.settlement?.resolution && (
             <p>
-              Penyelesaian: {label(r.settlement.status)} —{" "}
+              Penyelesaian: {label(r.settlement.status).toLowerCase()} —{" "}
               {r.settlement.resolution}
             </p>
           )}

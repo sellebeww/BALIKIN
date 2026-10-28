@@ -67,7 +67,7 @@ export function receive(
     },
   };
 }
-export function photoNames(photos: string[]): string[] {
+function photoNames(photos: string[]): string[] {
   return [...new Set(photos.map((p) => p.trim()).filter(Boolean))];
 }
 export function inspect(

@@ -5,7 +5,7 @@ import { applyAction, type Action } from "../domain/operations";
 import { networkSchema } from "../domain/persistence-schema";
 import { seedNetwork } from "../domain/seed";
 import type { Network } from "../domain/types";
-export class VersionConflictError extends Error {
+class VersionConflictError extends Error {
   readonly code = "VERSION_CONFLICT";
   constructor() {
     super(
@@ -62,8 +62,10 @@ export function createStore(directory: string) {
 const registry = globalThis as typeof globalThis & {
   returrukunStores?: Map<string, ReturnType<typeof createStore>>;
 };
+// shortcut: Vercel's filesystem is read-only except /tmp, which is per-instance and ephemeral; use a real database for durable data.
 const directory = path.resolve(
-  process.env.RETURRUKUN_DATA_DIR ?? path.join(process.cwd(), "data"),
+  process.env.RETURRUKUN_DATA_DIR ??
+    (process.env.VERCEL ? "/tmp/balikin" : path.join(process.cwd(), "data")),
 );
 registry.returrukunStores ??= new Map();
 if (!registry.returrukunStores.has(directory))

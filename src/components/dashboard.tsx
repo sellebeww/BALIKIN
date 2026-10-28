@@ -66,7 +66,7 @@ export function Dashboard({
         <Metric
           title="Kepadatan asumsi"
           value={`${volume} retur`}
-          detail="per minggu · 5 merek aktif"
+          detail="Per minggu · 5 merek aktif"
         />
         <Metric
           title="Biaya per retur"

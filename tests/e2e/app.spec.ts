@@ -24,7 +24,7 @@ async function mutation(
 test("semua layar, query invalid, dan navigasi browser", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/?page=1.5");
+  await page.goto("/aplikasi?page=1.5");
   await expect(
     page.getByRole("heading", { name: "Gambaran jaringan" }),
   ).toBeVisible();
@@ -50,7 +50,7 @@ test("semua layar, query invalid, dan navigasi browser", async ({ page }) => {
 test("alur UI penuh dari pembeli hingga selesai dan persistensi reload", async ({
   page,
 }) => {
-  await page.goto("/?page=2");
+  await page.goto("/aplikasi?page=2");
   await expect(
     page.getByRole("button", { name: "Buat pesanan demo" }),
   ).toBeVisible();
@@ -99,7 +99,7 @@ test("alur UI penuh dari pembeli hingga selesai dan persistensi reload", async (
   await page.reload();
   await page.getByLabel("Cari retur").fill(id);
   await expect(
-    page.getByRole("cell", { name: "selesai", exact: true }),
+    page.getByRole("cell", { name: "Selesai", exact: true }),
   ).toBeVisible();
   await navigate(page, "Titik penerimaan");
   await page.getByLabel("Kode QR", { exact: true }).fill(r.qr);
@@ -115,7 +115,7 @@ test("barang berbeda ditahan, tidak bisa diperiksa, dan keputusan sengketa tersi
 }) => {
   const n: Network = await (await request.get("/api/network")).json(),
     r = n.returns.find((r) => r.status === "qr_terbit" && r.brandId === "b1")!;
-  await page.goto("/?page=3");
+  await page.goto("/aplikasi?page=3");
   await page.getByLabel("Pilih QR demo").selectOption(r.id);
   await page.getByLabel("ID barang yang diserahkan").fill("BARANG-SALAH");
   await mutation(page, () =>
@@ -147,7 +147,7 @@ test("barang berbeda ditahan, tidak bisa diperiksa, dan keputusan sengketa tersi
 test("S1–S7, ekspor CSV, Monte Carlo worker dan pembatalan", async ({
   page,
 }) => {
-  await page.goto("/?page=5");
+  await page.goto("/aplikasi?page=5");
   await expect(
     page.getByRole("button", { name: "Jalankan simulasi" }),
   ).toBeVisible();
@@ -179,7 +179,7 @@ test("S1–S7, ekspor CSV, Monte Carlo worker dan pembatalan", async ({
 test("evaluasi menerima volume pecahan tanpa crash", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/?page=6");
+  await page.goto("/aplikasi?page=6");
   await page
     .getByRole("spinbutton", { name: "Retur / minggu", exact: true })
     .fill("55.5");
@@ -190,7 +190,7 @@ test("tampilan ponsel tidak meluber dan menu dapat ditutup", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await page.goto("/aplikasi");
   await expect(
     page.getByRole("heading", { name: "Gambaran jaringan" }),
   ).toBeVisible();
@@ -269,9 +269,9 @@ test("API memvalidasi payload, origin, ukuran, dan konflik versi", async ({
 test("profil perusahaan dan aplikasi saling terhubung", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/");
+  await page.goto("/aplikasi");
   await page.getByRole("link", { name: "Lihat profil perusahaan" }).click();
-  await expect(page).toHaveURL(/\/profil$/);
+  await expect(page).toHaveURL(/\/$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Balikin",
   );
@@ -280,6 +280,6 @@ test("profil perusahaan dan aplikasi saling terhubung", async ({ page }) => {
     page.getByRole("heading", { name: "Gambaran jaringan" }),
   ).toBeVisible();
   await page.getByRole("link", { name: "Profil BALIKIN" }).click();
-  await expect(page).toHaveURL(/\/profil$/);
+  await expect(page).toHaveURL(/\/$/);
   expect(errors).toEqual([]);
 });

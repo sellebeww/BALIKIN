@@ -3,7 +3,7 @@ import { compareModes, costModel, type CostGroup } from "./cost";
 import { inspect, receive, transition } from "./state";
 import type { Brand, CostParameters, ReturnRecord } from "./types";
 import { parameterSchema } from "./validation";
-export function random(seed: number) {
+function random(seed: number) {
   let a = seed | 0;
   return () => {
     a |= 0;
@@ -18,7 +18,7 @@ function stream(seed: number, key: string) {
   for (const c of key) hash = Math.imul(hash ^ c.charCodeAt(0), 16777619);
   return random(hash);
 }
-export function poisson(mean: number, rng: () => number) {
+function poisson(mean: number, rng: () => number) {
   if (!Number.isFinite(mean) || mean < 0 || mean > 10000)
     throw Error("Rerata Poisson tidak valid.");
   let remaining = mean,

@@ -21,7 +21,10 @@ export const date = (s?: string) =>
         timeStyle: "short",
       })
     : "—";
-export const label = (s: string) => s.replaceAll("_", " ");
+export const label = (s: string) => {
+  const t = s.replaceAll("_", " ");
+  return t.charAt(0).toUpperCase() + t.slice(1);
+};
 export function Badge({ value }: { value: string }) {
   return (
     <span
@@ -55,6 +58,34 @@ export function Empty({ children }: { children: React.ReactNode }) {
     <div className="empty">
       <Boxes size={28} />
       <p>{children}</p>
+    </div>
+  );
+}
+export function LoadingSkeleton() {
+  return (
+    <div role="status" aria-live="polite">
+      <span className="sr-only">Memuat jaringan lokal…</span>
+      <div className="metrics" aria-hidden="true">
+        {[0, 1, 2, 3].map((i) => (
+          <div key={i} className="metric skeleton-card">
+            <i className="sk sk-line short" />
+            <i className="sk sk-line big" />
+            <i className="sk sk-line" />
+          </div>
+        ))}
+      </div>
+      <div className="dashboard-grid" aria-hidden="true">
+        {[0, 1].map((i) => (
+          <div key={i} className="panel skeleton-card">
+            <i className="sk sk-line med" />
+            <i className="sk sk-line short" />
+            <i className="sk sk-block" />
+          </div>
+        ))}
+      </div>
+      <p className="skeleton-caption" aria-hidden="true">
+        <Boxes size={16} /> Menyiapkan data jaringan…
+      </p>
     </div>
   );
 }

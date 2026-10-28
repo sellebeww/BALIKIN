@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id">
+    <html lang="id" data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

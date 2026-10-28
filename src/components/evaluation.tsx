@@ -118,7 +118,7 @@ export function Evaluation({ n }: { n: Network }) {
               <span className="eyebrow">MODE 0{i + 1}</span>
               <h2>{m.name}</h2>
               <strong>{money(m.cost)}</strong>
-              <p>per retur · biaya penuh</p>
+              <p>Per retur · biaya penuh</p>
               <hr />
               <dl>
                 <dt>Penyelesaian asumsi</dt>

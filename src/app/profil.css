@@ -594,6 +594,7 @@ html:has(.pf) {
   width: auto;
 }
 .pf-footer a {
+  padding: 8px 0;
   font-weight: 700;
   color: var(--primary);
 }
