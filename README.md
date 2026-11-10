@@ -1,12 +1,14 @@
-<p align="center">
-  <img src="public/logo.png" alt="BALIKIN" width="260" />
-</p>
+<div align="center">
 
-<h3 align="center">Retur gampang, tinggal Balikin.</h3>
+<img src="public/logo.png" alt="BALIKIN" width="260">
 
-<p align="center">
-  Jaringan retur bersama untuk merek lokal: retur dari banyak merek dikumpulkan di satu titik dekat pembeli, lalu dipulangkan dalam satu perjalanan.
-</p>
+### Retur gampang, tinggal Balikin.
+
+<p>Jaringan retur bersama untuk merek lokal: retur dari banyak merek dikumpulkan di satu titik dekat pembeli, lalu dipulangkan dalam satu perjalanan.</p>
+
+<p><img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white&labelColor=3a3f47" alt="Next.js 16"> <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&labelColor=3a3f47" alt="React 19"> <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white&labelColor=3a3f47" alt="TypeScript 5"> <img src="https://img.shields.io/badge/Tailwind-4-38BDF8?logo=tailwindcss&logoColor=white&labelColor=3a3f47" alt="Tailwind 4"> <img src="https://img.shields.io/badge/mode-sandbox%20%28data%20sintetis%29-d4a017?labelColor=3a3f47" alt="mode sandbox (data sintetis)"> <img src="https://img.shields.io/badge/license-All%20rights%20reserved-1e3a8a?labelColor=3a3f47" alt="license All rights reserved"></p>
+
+</div>
 
 ---
 
