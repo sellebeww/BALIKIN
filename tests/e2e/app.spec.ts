@@ -275,7 +275,7 @@ test("profil perusahaan dan aplikasi saling terhubung", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Balikin",
   );
-  await page.getByRole("link", { name: "Masuk ke aplikasi" }).click();
+  await page.getByRole("link", { name: "Buka demo" }).first().click();
   await expect(
     page.getByRole("heading", { name: "Gambaran jaringan" }),
   ).toBeVisible();

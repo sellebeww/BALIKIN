@@ -104,7 +104,7 @@ export default function Profil() {
           <a href="#peran">Untuk siapa</a>
         </nav>
         <Link className="pf-btn" href="/aplikasi">
-          Buka aplikasi <ArrowRight size={16} />
+          Buka demo <ArrowRight size={16} />
         </Link>
       </header>
 
@@ -128,7 +128,7 @@ export default function Profil() {
           </p>
           <div className="pf-cta">
             <Link className="pf-btn big" href="/aplikasi">
-              Masuk ke aplikasi <ArrowRight size={18} />
+              Buka demo <ArrowRight size={18} />
             </Link>
             <a className="pf-btn ghost big" href="#cara-kerja">
               Lihat cara kerja
@@ -310,7 +310,7 @@ export default function Profil() {
           <p>Jelajahi dasbor, portal merek, dan simulator biaya di sandbox.</p>
         </div>
         <Link className="pf-btn light big" href="/aplikasi">
-          Buka aplikasi <ArrowRight size={18} />
+          Buka demo <ArrowRight size={18} />
         </Link>
       </section>
 
